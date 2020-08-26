@@ -25,6 +25,6 @@ print(linhas2)
 newFile = open("arquivo.txt", "w")
 newFile.write("Esse eh o meu arquivo")
 newFile.close()
-arq2 = open("arquivo.txt")
+arq2 = open("arquivo2.txt")
 linhas = arq2.readlines() # - linha por linha
 print(linhas)
