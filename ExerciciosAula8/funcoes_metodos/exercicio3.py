@@ -13,6 +13,8 @@
 # Para total de vendas de 2500.01 a 5000.00 Reais - 2%
 # Para total de vendas a cima de 5000.01 Reais - 3%
 
+# Link do meu git: https://github.com/aka-luana/AulaEntra21_Luana
+
 vendas_armando = [100.00, 500.00, 258.50, 710.00, 50.50,750.00 ]
 vendas_eduardo = [10.00, 1050.00, 859.75, 199.05, 500.50,750.00, 568.60, 950.00 ]
 vendas_paulo   = [950.00, 89.90, 2500.00, 1750.00,500.00]

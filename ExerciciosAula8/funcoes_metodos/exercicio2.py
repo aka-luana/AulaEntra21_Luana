@@ -8,6 +8,8 @@
 # Qual é o resultado da soma da lista?
 #
 
+# Link do meu git: https://github.com/aka-luana/AulaEntra21_Luana
+
 listaQualquer = [1, 9, 42, 0.5, 6, 17, 13, 0, 2, 19]
 
 print(f"Quantos itens tem na lista? R: {len(listaQualquer)}")

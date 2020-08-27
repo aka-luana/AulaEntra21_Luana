@@ -2,7 +2,7 @@
 # Dada a seguinte lista, resolva os seguintes questões:
 # EXECUTE ESTE QUADRO PARA PODER USAR A LISTA
 
-# Link do meu git: 
+# Link do meu git: https://github.com/aka-luana/AulaEntra21_Luana
 
 lista = [10, 20, 'amor', 'abacaxi', 80, 'Abioluz', 'Cachorro grande é de arrasar']
 
