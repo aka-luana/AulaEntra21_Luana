@@ -6,7 +6,7 @@ Depois mostre cada nome em linhas separadas.
 
 listaNomes = []
 
-for i in range(3):
+for i in range(10):
     listaNomes.append(input(f"Digite o nome {i}: "))
 
 print("\n")

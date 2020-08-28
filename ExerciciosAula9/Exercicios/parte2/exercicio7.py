@@ -10,7 +10,7 @@ Menores de 13 anos: Piscina de bolinhas liberado
 
 listaIdades = []
 
-for i in range(5):
+for i in range(10):
     listaIdades.append(int(input("Qual a idade? ")))
 
 for i in listaIdades:
