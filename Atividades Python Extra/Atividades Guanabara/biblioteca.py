@@ -1,4 +1,4 @@
-'''import math
+import math
 
 num  = int(input("Digite um número: "))
 
@@ -8,7 +8,15 @@ print("A raiz de {} é {}".format(num, math.ceil(raiz))) #Ceil arredonda o numer
 print("A raiz de {} é {}".format(num, math.floor(raiz))) #Floor arredonda o numero para baixo
 print("A raiz de {} é {:.2f}".format(num, raiz))
 
-from math import sqrt, floor #Quando importa algum especifico não precisa mais colocar math.
+
+
+
+
+
+
+
+
+'''from math import sqrt, floor #Quando importa algum especifico não precisa mais colocar math.
 
 num  = int(input("Digite um número: "))
 
