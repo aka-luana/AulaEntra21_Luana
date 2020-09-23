@@ -1,4 +1,7 @@
-nome    = str(input())
+nome = str(input())
+salarioFixo = float(input())
 vendas  = float(input())
-salario = float(input())
-print(f"TOTAL = {}")
+salarioFinal = (0.15 * vendas) + salarioFixo
+print(f"TOTAL = R$ {salarioFinal:.2f}")
+#RUNTIME ERROR
+
