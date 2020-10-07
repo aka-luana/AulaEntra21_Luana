@@ -5,9 +5,9 @@ meuDicionario = {"A":"AMEIXA", "B":"BOLA", "C": "CACHORRO"}
 #print(meuDicionario["A"], meuDicionario["B"])
 #print(meuDicionario)
 
-#for chave in meuDicionario:
-	#print(meuDicionario[chave])
-	#print(chave + ": " + meuDicionario[chave])
+for chave in meuDicionario:
+	print(meuDicionario[chave])
+	print(chave + ": " + meuDicionario[chave])
 
 #for i in meuDicionario.items(): #('A', 'AMEIXA')
 #	print(i)
