@@ -6,7 +6,12 @@
 #--- Crie uma chamada para as duas função, para exibir o resultado no console
 
 def cabecalho(empresa):
-    print("-" * 45 + "\n" + " " * 20 + empresa + " " * 20 + "\n" + "-" * 45)
+    print("-" * 20 + empresa + "-" * 20)
+
+def rodape():
+    print("-" * 45)
 
 nomeEmpresa = input("Qual é o nome da empresa? ")
+
 cabecalho(nomeEmpresa)
+rodape()

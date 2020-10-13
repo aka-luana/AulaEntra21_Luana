@@ -8,8 +8,7 @@
 def raiz(n, e):
     resultado = n ** e
     print(f"O resultado é {resultado}")
-    
 
-numero   = int(input("Número: "))
-potencia = int(input("Potencia: "))
+numero   = int(input("Informe o número: "))
+potencia = int(input("Informe a potencia: "))
 raiz(numero, potencia)

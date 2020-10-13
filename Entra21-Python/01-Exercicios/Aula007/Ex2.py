@@ -6,11 +6,13 @@
 #--- Imprima o resultado e uma mensagem usando f-string
 
 def divisao(n1, n2):
-    resultado = n1 / n2
-    return(resultado)
+    if n1 == 0 or n2 == 0:
+        return(print("Não é possivel calcular"))
+    else:
+        resultado = n1 / n2
+        return(print(f"A divisão entre o número {num1} e o {num2} é {resultado:.2f}"))
 
 num1, num2 = input("Digite os números: ").split()
 num1 = float(num1)
 num2 = float(num2)
-
-print(f"A divisão entre o número {num1} e o {num2} é {divisao(num1, num2):.2f}")
+divisao(num1, num2)

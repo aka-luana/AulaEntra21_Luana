@@ -5,6 +5,7 @@
 #--- Realize a chamada da função na ultima linha do seu programa
 
 def cabecalho():
-    print("-" * 20 + " HBSIS " + "-" * 20)
+    empresa = "HBSIS"
+    print("-" * 20 + " " + empresa + " " + "-" * 20)
 
 cabecalho()
