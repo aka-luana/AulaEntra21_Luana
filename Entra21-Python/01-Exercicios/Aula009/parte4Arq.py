@@ -1,14 +1,9 @@
 import parte1Arq
 import parte2Arq
-#from parte2Arq import listaEndereco
-#from parte1Arq import listaPessoa
 
 def listarEnderecos():
-    #arquivoEnderecos = open('enderecos.txt', 'a')
+    idInvalido = False
 
-    #if(len(arquivoEnderecos) == 0):
-    #    print("Primeiro cadastre um endereço.")
-    #else:
     print("-" * 45)
     print("""
     1) Listar Todos
@@ -24,7 +19,7 @@ def listarEnderecos():
             print(f"ID: {listaDados[0]} - Rua: {listaDados[1]} - Numero Casa: {listaDados[2]} - Complemento: {listaDados[3]} - Bairro: {listaDados[4]} - Cidade: {listaDados[5]} - Estado: {listaDados[6]}")
         arquivoEnderecos.close()
     elif (escolhaUserListar == 2):
-        idPesquisa = input("Digite o id da pessoa desejada: ")
+        idPesquisa = input("Digite o ID da pessoa desejada: ")
 
         arquivoEnderecos = open('enderecos.txt', 'r')
 
@@ -33,7 +28,13 @@ def listarEnderecos():
             listaDados = linhaLimpa.split(';')
             if (idPesquisa == listaDados[0]):
                 print(f"ID: {listaDados[0]} - Rua: {listaDados[1]} - Numero Casa: {listaDados[2]} - Complemento: {listaDados[3]} - Bairro: {listaDados[4]} - Cidade: {listaDados[5]} - Estado: {listaDados[6]}")
-
+                idInvalido = False
+                break
+            else:
+                idInvalido = True
+            
+        if (idInvalido):
+            print("ID informado inválido.")
         arquivoEnderecos.close()
     else:
         print("Opção inválida.")

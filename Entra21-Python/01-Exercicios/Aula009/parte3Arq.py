@@ -1,11 +1,9 @@
 import parte1Arq
 
 def listarPessoas():
+    idInvalida = False
     arquivoPessoas = open('pessoas.txt', 'a')
 
-    #if (len(arquivoPessoas) == 0):
-    #    print("Nenhuma pessoa cadastrada.")
-    #else:
     print("-" * 45)
     print("""
     1) Listar Todos
@@ -24,13 +22,18 @@ def listarPessoas():
         idPesquisa = input("Digite o id da pessoa desejada: ")
 
         arquivoPessoas = open('pessoas.txt', 'r')
-
         for pesquisa in arquivoPessoas:
             linhaLimpa = pesquisa.strip()
             listaDados = linhaLimpa.split(';')
             if (idPesquisa == listaDados[3]):
                 print(f"Nome: {listaDados[0]} - Sobrenome: {listaDados[1]} - Idade: {listaDados[2]} - ID: {listaDados[3]}")
-
+                idInvalida = False
+                break
+            else:
+                idInvalida = True
+        
+        if (idInvalida):
+            print("ID informado inválido.")
         arquivoPessoas.close()
     else:
         print("Opção inválida.")

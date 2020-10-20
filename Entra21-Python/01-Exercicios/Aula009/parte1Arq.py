@@ -1,17 +1,17 @@
 def cadastroPessoa():
     nome = input("Digite o nome: ")
-    if(nome.isspace()):
-        while(nome.isspace()):
+    if(nome.isspace() or nome == ''):
+        while(nome.isspace() or nome == ''):
             nome = input("Nome em branco. Digite novamente: ")
 
     sobrenome = input("Digite o sobrenome: ")
-    if(sobrenome.isspace()):
-        while(sobrenome.isspace()):
+    if(sobrenome.isspace() or sobrenome == ''):
+        while(sobrenome.isspace() or sobrenome == ''):
             sobrenome = input("Sobrenome em branco. Digite novamente: ")
 
     idade = input("Digite a idade: ")
-    if(idade.isspace()):
-        while(idade.isspace()):
+    if(idade.isspace() or idade == ''):
+        while(idade.isspace() or idade == ''):
             idade = input("Idade em branco. Digite novamente: ")
     idade = int(idade)
 

@@ -7,9 +7,9 @@ def main():
     print("-" * 45)
     print("""
         1) Cadastrar Pessoa
-        2) Cadastrar endereço
-        3) Listar Pessoas cadastradas
-        4) Listar Endereços cadastrados
+        2) Cadastrar Endereço
+        3) Listar Pessoas Cadastradas
+        4) Listar Endereços Cadastrados
         5) Sair
     """)
     print("-" * 45)
