@@ -1,8 +1,25 @@
+# arq com a palavra secreta e o numero de vidas (chutes) do jogador
+# aplicar em funcao e colocar nas variaveis palavra e chances
+
 from os import system, name 
+
+def palavraSecreta():
+    arqPalavra = open("config.txt", "r")
+    palavra = arqPalavra.readline()
+    arqPalavra.close()
+    return palavra.strip()
+
+def vidasJogador():
+    chances = None
+    arqVida = open("config.txt", "r")
+    for linha in arqVida: # sobrescrve
+        chances = linha
+    arqVida.close()
+    return int(chances)
  
 def jogar():
-    palavra = "abelha"
-    chances = 5
+    palavra = palavraSecreta()
+    chances = vidasJogador()
     letras_usadas = []
     while True:
         tentativa_palavra = ""
