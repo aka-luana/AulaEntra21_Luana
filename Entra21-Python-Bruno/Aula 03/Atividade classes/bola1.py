@@ -1,5 +1,5 @@
 class Bola:
-    setor = "Infantil"
+    setor = "Brinquedos"
 
     def __init__(self, cor, esporte, tamanho):
         self.cor = cor
