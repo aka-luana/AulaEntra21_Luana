@@ -3,21 +3,12 @@ from random import randrange
 arqPessoa = "cadastroPessoa.txt"
 arqConta = "cadastroConta.txt"
 
-class Pessoa():
-    def __init__(self, nome, endereco, cpf, telefone):
-        self.nome = nome
-        self.endereco = endereco
-        self.cpf = cpf
-        self.telefone = telefone
-
 class Banco():
     def __init__(self):
-        #self.numConta = numConta
         pass
     
     def geraNumConta(self):
         num = randrange(100, 999)
-        #with open("") # verificar se repete no arquivo cadastroConta
         return num
     
     def procurarPessoa(self):
@@ -57,22 +48,17 @@ class Banco():
             for conta in novoSaldo:
                 saldo.append(conta.strip().split(';'))
             
+            arqApaga = open("cadastroConta.txt", "w")
             for i in saldo:
                 if numeroConta == i[2] and banco == i[1]:
                     valorNovo = i[3]
                     i[3] = str(float(valorNovo) + valor)
-                    arqApaga = open("cadastroConta.txt", "w")
                     arqApaga.write(f"{i[0]};{i[1]};{i[2]};{i[3]}\n")
-                    arqApaga.close()
                     continue
-                elif numeroConta != i[2] and banco != i[1]:
+                else:
                     arqApaga = open("cadastroConta.txt", "w")
                     arqApaga.write(f"{i[0]};{i[1]};{i[2]};{i[3]}\n")
-                    arqApaga.close()
-
-class Conta(Banco):
-    def __init__(self, pessoa: Pessoa, banco: Banco, numConta: Banco):
-        pass
+            arqApaga.close()
 
 class DataSaver():
     global arqPessoa
