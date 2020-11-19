@@ -1,3 +1,0 @@
-Com vários materiais: https://pythonhoje.wordpress.com/
-Verifica se está seguindo o PEP8: http://pep8online.com/ 
-Livro Pense Python: https://penseallen.github.io/PensePython2e/

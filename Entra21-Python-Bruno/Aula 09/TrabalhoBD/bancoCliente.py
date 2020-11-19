@@ -4,7 +4,7 @@ tudo relacionado a isso se encontra neste módulo.
 '''
 
 import sqlite3
-from pessoas import Pessoa, teste
+from pessoas import teste
 #from veiculos import Veiculo, veiculo
 #from pessoas import teste
 #from veiculos import veiculo
@@ -53,9 +53,9 @@ def criaTabelaVeiculos():
     """)
 
 def insereDadosPessoas(dados):
-    lista = dados.values()
+    lista = list(dados.values())
     print(lista)
-    cursor.executemany("""
+    cursor.execute("""
     INSERT INTO pessoas (nome, dataNascimento, cpf, endereco, profissao, salario, email, telefone, nomeResponsavel, sexo, naturalidade, nacionalidade)
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
     """, lista)
@@ -65,8 +65,8 @@ def insereDadosPessoas(dados):
 #def insereDadosVeiculos(dados):
 #    print(dados)
 
-criaTabelaPessoa()
-criaTabelaVeiculos()
+#criaTabelaPessoa()
+#criaTabelaVeiculos()
 insereDadosPessoas(teste)
 #insereDadosVeiculos(veiculo)
 
