@@ -82,7 +82,7 @@ def insereDadosVeiculos(dadosVeiculo):
     #print(lista)
     cursor.execute("""
     INSERT INTO veiculos (marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor, identificadorPessoa)
-    VALUES (?,?,?,?,?,?,?)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
     """, lista)
 
     conexao.commit()
