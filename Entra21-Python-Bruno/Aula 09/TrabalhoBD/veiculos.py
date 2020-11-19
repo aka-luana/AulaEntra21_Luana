@@ -35,6 +35,7 @@ def infoVeiculo(veic): # Fazer o cash corretamente com o que é esperado no banc
     numPortas      = input("Quantas portas?: ")
     qtdPassageiros = input("Quantos passageiros?: ")
     valor          = input("Qual o valor do veícuo?: ")
+    
     print("\n ----------------------------- \n")
     dadosVeiculo = Veiculo(marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor)
     return dadosVeiculo.__dict__
