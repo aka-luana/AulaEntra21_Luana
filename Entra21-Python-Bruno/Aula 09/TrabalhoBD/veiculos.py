@@ -40,4 +40,3 @@ def infoVeiculo(veic):
     dadosVeiculo = Veiculo(marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor)
     return dadosVeiculo.__dict__
 
-veiculo = infoVeiculo(Veiculo)

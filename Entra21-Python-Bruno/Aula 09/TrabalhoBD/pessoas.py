@@ -39,8 +39,3 @@ def infoPessoa(Pessoa):
 
     dadosPessoa = Pessoa(nome, dataNascimento, cpf, endereco, profissao, salario, email, telefone, nomeResponsavel, sexo, naturalidade, nacionalidade)
     return dadosPessoa.__dict__
-
-pessoa = infoPessoa(Pessoa)
-
-if __name__ == "__main__":
-    pass

@@ -9,15 +9,27 @@ import sqlite3
 #from pessoas import teste
 #from veiculos import veiculo
 
-conexao = sqlite3.connect("clientes.db")
-cursor  = conexao.cursor()
+#class Conexao:
+#    def __init__(self):
+#        pass 
+#
+#    def conectar(self):
+#        self.conexao = sqlite3.connect('clientes.db')
+#        return self.conexao.cursor()
+#
+#    def desconectar(self):
+#        self.conexao.close()
+#
+#c = Conexao()
 
 def criaTabelaPessoa():
     '''
     Aqui é feita a criação da tabela de banco de dados de pessoas, 
     passando o nome das colunas e seus tipos. 
     '''
-    
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS pessoas (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -36,7 +48,12 @@ def criaTabelaPessoa():
     );
     """)
 
+    conexao.close()
+
 def criaTabelaVeiculos():
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS veiculos (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -58,9 +75,47 @@ def criaTabelaVeiculos():
     );
     """)
 
+    conexao.close()
+
+def criaTabelaPessoaVeiculo():
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS pessoasVeiculos (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        idPessoa INTEGER,
+        idVeiculo INTEGER,
+
+        FOREIGN KEY (idPessoa) references pessoas(id),
+        FOREIGN KEY (idVeiculo) references veiculos(id)
+    )
+    """)
+
+    conexao.close()
+
+def insereDadosPessoaVeiculo():
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+    
+    cursor.execute("SELECT id from pessoas")
+    idPessoa = cursor.fetchall()
+
+    cursor.execute("SELECT id from veiculos")
+    idVeiculos = cursor.fetchall()
+
+    cursor.execute("""
+    INSERT INTO pessoasVeiculos (idPessoa, idVeiculo)
+    VALUES (?,?)
+    """, (idPessoa, idVeiculos))
+    conn.commit()
+
+    conexao.close()
+
 def insereDadosPessoas(dadosPessoa):
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
     lista = list(dadosPessoa.values())
-    print(lista)
     cursor.execute("""
     INSERT INTO pessoas (nome, dataNascimento, cpf, endereco, profissao, salario, email, telefone, nomeResponsavel, sexo, naturalidade, nacionalidade)
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
@@ -68,14 +123,18 @@ def insereDadosPessoas(dadosPessoa):
 
     conexao.commit()
 
+    conexao.close()
+
 def insereDadosVeiculos(dadosVeiculo):
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+
     cont = 0
     cursor.execute(f"""
     SELECT * FROM pessoas;
     """)
     for linha in cursor.fetchall():
         cont += 1
-    print(cont)
 
     lista = list(dadosVeiculo.values())
     lista.append(cont)
@@ -83,7 +142,32 @@ def insereDadosVeiculos(dadosVeiculo):
     INSERT INTO veiculos (marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor, identificadorPessoa)
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
     """, lista)
-
+    
     conexao.commit()
 
-conexao.close()
+    conexao.close()
+
+    print(f"Cadastro realizado com sucesso! Seu número de cadastro é {cont}")
+
+def visualizarCadastro():
+    conexao = sqlite3.connect('clientes.db')
+    cursor  = conexao.cursor()
+    
+    escolha = int(input("""Digite a opção desejada: 
+    1. Todos os cadastros
+    2. Pesquisar um cadastro específico.
+    """))
+
+    if escolha == 1:
+        cursor.execute("""
+        SELECT pessoas.nome, pessoas.id, veiculos.identificadorPessoa, veiculos.placa FROM pessoas 
+        INNER JOIN pessoasVeiculos ON pessoas.id = pessoasVeiculos.idPessoa
+        INNER JOIN veiculos ON pessoasVeiculos.idVeiculo = veiculos.id
+        """)
+
+        result = cursor.fetchall()
+        print(result)
+
+        #print(f"Seja bem vindo ao mundo pokemon, {result[0][0]}! Cuide bem do seu {result[0][1]}!")
+
+    conexao.close()

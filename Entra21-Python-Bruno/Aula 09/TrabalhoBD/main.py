@@ -1,6 +1,6 @@
 import bancoCliente
-from pessoas import pessoa
-from veiculos import veiculo
+import pessoas
+import veiculos
 
 if __name__ == "__main__":
     while True:
@@ -17,20 +17,22 @@ if __name__ == "__main__":
             Digite a operação desejada: """))
 
         if (valor == 1):
-            criaTabelaPessoa()
-            criaTabelaVeiculos()
-            insereDadosPessoas(pessoa)
-            insereDadosVeiculos(veiculo)
+            bancoCliente.criaTabelaPessoa()
+            bancoCliente.criaTabelaVeiculos()
+            p = pessoas.infoPessoa(pessoas.Pessoa)
+            bancoCliente.insereDadosPessoas(p)
+            v = veiculos.infoVeiculo(veiculos.Veiculo)
+            bancoCliente.insereDadosVeiculos(v)
+            bancoCliente.criaTabelaPessoaVeiculo()
+            bancoCliente.insereDadosPessoaVeiculo()
         elif (valor == 2):
-            dataSaver.cadastroConta()
+            bancoCliente.visualizarCadastro()
         elif (valor == 3):
-            banco.mostraSaldo()
+            pass
         elif (valor == 4):
-            banco.deposito()
-        elif (valor == 5):
-            banco.procurarPessoa()
+            pass
         elif(valor == 0):
             print("Agradecemos a sua visita!")
             break
         else:
-            print("Opção inválida.")
+            print("Opção inválida. Tente novamente.")
