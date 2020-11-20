@@ -8,7 +8,7 @@ id_cliente = 8
 # excluindo um registro da tabela
 cursor.execute("""
 DELETE FROM clientes
-WHERE id = ?
+WHERE id = ? 
 """, (id_cliente,))
 
 conn.commit()

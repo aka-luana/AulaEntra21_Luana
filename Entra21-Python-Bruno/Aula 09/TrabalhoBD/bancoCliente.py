@@ -4,10 +4,10 @@ tudo relacionado a isso se encontra neste módulo.
 '''
 
 import sqlite3
-#from pessoas import teste
+#from pessoas import pessoa
 #from veiculos import Veiculo, veiculo
 #from pessoas import teste
-from veiculos import veiculo
+#from veiculos import veiculo
 
 conexao = sqlite3.connect("clientes.db")
 cursor  = conexao.cursor()
@@ -19,7 +19,7 @@ def criaTabelaPessoa():
     '''
     
     cursor.execute("""
-    CREATE TABLE pessoas (
+    CREATE TABLE IF NOT EXISTS pessoas (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         dataNascimento TEXT NOT NULL,
@@ -38,7 +38,7 @@ def criaTabelaPessoa():
 
 def criaTabelaVeiculos():
     cursor.execute("""
-    CREATE TABLE veiculos (
+    CREATE TABLE IF NOT EXISTS veiculos (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         marca TEXT NOT NULL,
         modelo TEXTE NOT NULL,
@@ -79,17 +79,11 @@ def insereDadosVeiculos(dadosVeiculo):
 
     lista = list(dadosVeiculo.values())
     lista.append(cont)
-    #print(lista)
     cursor.execute("""
     INSERT INTO veiculos (marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor, identificadorPessoa)
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
     """, lista)
 
     conexao.commit()
-
-#criaTabelaPessoa()
-#criaTabelaVeiculos()
-#insereDadosPessoas(teste)
-insereDadosVeiculos(veiculo)
 
 conexao.close()

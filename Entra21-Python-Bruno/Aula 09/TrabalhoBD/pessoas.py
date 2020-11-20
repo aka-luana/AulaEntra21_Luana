@@ -40,6 +40,7 @@ def infoPessoa(Pessoa):
     dadosPessoa = Pessoa(nome, dataNascimento, cpf, endereco, profissao, salario, email, telefone, nomeResponsavel, sexo, naturalidade, nacionalidade)
     return dadosPessoa.__dict__
 
-teste = infoPessoa(Pessoa)
+pessoa = infoPessoa(Pessoa)
 
-#print(teste)
+if __name__ == "__main__":
+    pass

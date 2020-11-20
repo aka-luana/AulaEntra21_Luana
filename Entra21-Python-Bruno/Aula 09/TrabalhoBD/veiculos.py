@@ -17,7 +17,7 @@ class Veiculo:
         self.qtdPassageiros = qtdPassageiros
         self.valor          = valor
     
-def infoVeiculo(veic): # Fazer o cash corretamente com o que é esperado no banco
+def infoVeiculo(veic):
     '''
     Aqui fazemos os inputs das informações de cadastro de um carro, após isso
     colocamos os dados em um objeto da classe Carro e retornamos esse mesmo objeto.
@@ -41,5 +41,3 @@ def infoVeiculo(veic): # Fazer o cash corretamente com o que é esperado no banc
     return dadosVeiculo.__dict__
 
 veiculo = infoVeiculo(Veiculo)
-
-#print(veiculo)
