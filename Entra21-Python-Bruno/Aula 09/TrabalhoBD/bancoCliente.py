@@ -77,40 +77,40 @@ def criaTabelaVeiculos():
 
     conexao.close()
 
-def criaTabelaPessoaVeiculo():
-    conexao = sqlite3.connect('clientes.db')
-    cursor  = conexao.cursor()
+#def criaTabelaPessoaVeiculo():
+#    conexao = sqlite3.connect('clientes.db')
+#    cursor  = conexao.cursor()
+#
+#    cursor.execute("""
+#    CREATE TABLE IF NOT EXISTS pessoasVeiculos (
+#        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+#        idPessoa INTEGER,
+#        idVeiculo INTEGER,
+#
+#        FOREIGN KEY (idPessoa) references pessoas(id),
+#        FOREIGN KEY (idVeiculo) references veiculos(id)
+#    )
+#    """)
+#
+#    conexao.close()
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS pessoasVeiculos (
-        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        idPessoa INTEGER,
-        idVeiculo INTEGER,
-
-        FOREIGN KEY (idPessoa) references pessoas(id),
-        FOREIGN KEY (idVeiculo) references veiculos(id)
-    )
-    """)
-
-    conexao.close()
-
-def insereDadosPessoaVeiculo():
-    conexao = sqlite3.connect('clientes.db')
-    cursor  = conexao.cursor()
-    
-    cursor.execute("SELECT id from pessoas")
-    idPessoa = cursor.fetchall()
-
-    cursor.execute("SELECT id from veiculos")
-    idVeiculos = cursor.fetchall()
-
-    cursor.execute("""
-    INSERT INTO pessoasVeiculos (idPessoa, idVeiculo)
-    VALUES (?,?)
-    """, (idPessoa, idVeiculos))
-    conn.commit()
-
-    conexao.close()
+#def insereDadosPessoaVeiculo():
+#    conexao = sqlite3.connect('clientes.db')
+#    cursor  = conexao.cursor()
+#
+#    cursor.execute("SELECT id from pessoas WHERE cpf = ?", [conexao.cpf]")
+#    idPessoa = cursor.fetchone()
+#
+#    cursor.execute("SELECT id from veiculos WHERE identificadorPessoa = ?". [conexao.identificadorPessoa])
+#    idVeiculos = cursor.fetchone()
+#
+#    cursor.execute("""
+#    INSERT INTO pessoasVeiculos (idPessoa, idVeiculo)
+#    VALUES (?,?)
+#    """, (idPessoa, idVeiculos))
+#    conn.commit()
+#
+#    conexao.close()
 
 def insereDadosPessoas(dadosPessoa):
     conexao = sqlite3.connect('clientes.db')
@@ -124,6 +124,8 @@ def insereDadosPessoas(dadosPessoa):
     conexao.commit()
 
     conexao.close()
+
+    print(f"Cadastro pessoa realizado com sucesso! Seu número de cadastro é {cont}")
 
 def insereDadosVeiculos(dadosVeiculo):
     conexao = sqlite3.connect('clientes.db')
@@ -147,27 +149,107 @@ def insereDadosVeiculos(dadosVeiculo):
 
     conexao.close()
 
-    print(f"Cadastro realizado com sucesso! Seu número de cadastro é {cont}")
+    print(f"Cadastro veículo realizado com sucesso! Seu número de cadastro é {cont}")
 
 def visualizarCadastro():
     conexao = sqlite3.connect('clientes.db')
     cursor  = conexao.cursor()
     
-    escolha = int(input("""Digite a opção desejada: 
-    1. Todos os cadastros
-    2. Pesquisar um cadastro específico.
-    """))
+    escolha = int(input("""
+            1. Todos os cadastros
+            2. Pesquisar um cadastro específico.
+            Digite a opção desejada: """))
 
     if escolha == 1:
         cursor.execute("""
-        SELECT pessoas.nome, pessoas.id, veiculos.identificadorPessoa, veiculos.placa FROM pessoas 
-        INNER JOIN pessoasVeiculos ON pessoas.id = pessoasVeiculos.idPessoa
-        INNER JOIN veiculos ON pessoasVeiculos.idVeiculo = veiculos.id
+        SELECT * FROM pessoas
         """)
-
-        result = cursor.fetchall()
-        print(result)
-
-        #print(f"Seja bem vindo ao mundo pokemon, {result[0][0]}! Cuide bem do seu {result[0][1]}!")
+        dPessoas = cursor.fetchall()
+        cursor.execute("""
+        SELECT * FROM veiculos
+        """)
+        dVeiculos = cursor.fetchall()
+        
+        contCadastro = 1
+        for dadosP, dadosV in zip(dPessoas, dVeiculos):
+            print(f"""           ------------------------
+           ------ Cadastro {contCadastro} ------
+              Informações pessoa
+           Nome: {dadosP[1]}
+           Data Nascimento: {dadosP[2]} 
+           CPF: {dadosP[3]}
+           Endereço: {dadosP[4]}
+           Profissão: {dadosP[5]}
+           Salário: {dadosP[6]}
+           Email: {dadosP[7]}
+           Telefone: {dadosP[8]}
+           Nome Responsável: {dadosP[9]}
+           Sexo: {dadosP[10]}
+           Naturalidade: {dadosP[11]}
+           Nacionalidade: {dadosP[12]}
+           
+              Informações veículo
+           Marca: {dadosV[1]}
+           Modelo: {dadosV[2]}
+           Ano: {dadosV[3]}
+           Cor: {dadosV[4]}
+           Placa: {dadosV[5]}
+           Motor: {dadosV[6]}
+           Km Rodado: {dadosV[7]}
+           Nome proprietário(a): {dadosV[8]}
+           Combustível: {dadosV[9]}
+           Quantidade portas: {dadosV[10]}
+           Quantidade passageiros: {dadosV[11]}
+           Valor: {dadosV[12]}
+           ------------------------""")
+            contCadastro += 1
+    elif escolha == 2:
+        numCadastro = int(input("           Digite o número do seu cadastro: "))
+        cursor.execute("""
+        SELECT * FROM pessoas
+        """)
+        dPessoas = cursor.fetchall()
+        cursor.execute("""
+        SELECT * FROM veiculos
+        """)
+        dVeiculos = cursor.fetchall()
+        
+        for dadosP, dadosV in zip(dPessoas, dVeiculos):
+            if (numCadastro == dadosP[0]):
+                print(f"""           ------------------------
+               ------ Cadastro {numCadastro} ------
+                   Informações pessoa
+               Nome: {dadosP[1]}
+               Data Nascimento: {dadosP[2]} 
+               CPF: {dadosP[3]}
+               Endereço: {dadosP[4]}
+               Profissão: {dadosP[5]}
+               Salário: {dadosP[6]}
+               Email: {dadosP[7]}
+               Telefone: {dadosP[8]}
+               Nome Responsável: {dadosP[9]}
+               Sexo: {dadosP[10]}
+               Naturalidade: {dadosP[11]}
+               Nacionalidade: {dadosP[12]}
+               
+                  Informações veículo
+               Marca: {dadosV[1]}
+               Modelo: {dadosV[2]}
+               Ano: {dadosV[3]}
+               Cor: {dadosV[4]}
+               Placa: {dadosV[5]}
+               Motor: {dadosV[6]}
+               Km Rodado: {dadosV[7]}
+               Nome proprietário(a): {dadosV[8]}
+               Combustível: {dadosV[9]}
+               Quantidade portas: {dadosV[10]}
+               Quantidade passageiros: {dadosV[11]}
+               Valor: {dadosV[12]}
+               ------------------------""")
+                break
+            else:
+                pass
+    else:
+        print("Opção inválida.")
 
     conexao.close()

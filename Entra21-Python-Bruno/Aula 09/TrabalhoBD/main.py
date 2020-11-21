@@ -23,8 +23,6 @@ if __name__ == "__main__":
             bancoCliente.insereDadosPessoas(p)
             v = veiculos.infoVeiculo(veiculos.Veiculo)
             bancoCliente.insereDadosVeiculos(v)
-            bancoCliente.criaTabelaPessoaVeiculo()
-            bancoCliente.insereDadosPessoaVeiculo()
         elif (valor == 2):
             bancoCliente.visualizarCadastro()
         elif (valor == 3):
