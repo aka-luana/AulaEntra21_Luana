@@ -28,7 +28,7 @@ if __name__ == "__main__":
         elif (valor == 3):
             pass
         elif (valor == 4):
-            pass
+            bancoCliente.excluirCadastro()
         elif(valor == 0):
             print("Agradecemos a sua visita!")
             break
