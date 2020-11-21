@@ -26,7 +26,7 @@ if __name__ == "__main__":
         elif (valor == 2):
             bancoCliente.visualizarCadastro()
         elif (valor == 3):
-            pass
+            bancoCliente.editarCadastro()
         elif (valor == 4):
             bancoCliente.excluirCadastro()
         elif(valor == 0):

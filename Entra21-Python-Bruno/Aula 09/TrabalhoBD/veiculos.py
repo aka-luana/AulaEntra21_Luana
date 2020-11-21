@@ -3,7 +3,8 @@ Este arquivo é responsável por tudo relacionado diretamente com os veiculos.
 '''
 
 class Veiculo:
-    def __init__(self, marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor):
+    def __init__(self, tipoVeiculo, marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor):
+        self.tipoVeiculo    = tipoVeiculo
         self.marca          = marca
         self.modelo         = modelo
         self.ano            = ano
@@ -23,6 +24,7 @@ def infoVeiculo(veic):
     colocamos os dados em um objeto da classe Carro e retornamos esse mesmo objeto.
     '''
     print("\n            ----- CADASTRO VEICULO ----- \n")
+    tipoVeiculo    = input("            Qual o tipo de veículo: ")
     marca          = input("            Qual a marca?: ")
     modelo         = input("            Qual o modelo?: ")
     ano            = input("            Qual o ano?: ")
@@ -37,6 +39,6 @@ def infoVeiculo(veic):
     valor          = input("            Qual o valor do veículo?: ")
     
     print("\n            ----------------------------- \n")
-    dadosVeiculo = Veiculo(marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor)
+    dadosVeiculo = Veiculo(tipoVeiculo, marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor)
     return dadosVeiculo.__dict__
 

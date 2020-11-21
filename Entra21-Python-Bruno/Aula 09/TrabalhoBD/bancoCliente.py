@@ -57,6 +57,7 @@ def criaTabelaVeiculos():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS veiculos (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        tipoVeiculo TEXT NOT NULL,
         marca TEXT NOT NULL,
         modelo TEXTE NOT NULL,
         ano TEXT NOT NULL,
@@ -106,8 +107,8 @@ def insereDadosVeiculos(dadosVeiculo):
     lista = list(dadosVeiculo.values())
     lista.append(identificadorPessoa)
     cursor.execute("""
-    INSERT INTO veiculos (marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor, identificadorPessoa)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+    INSERT INTO veiculos (tipoVeiculo, marca, modelo, ano, cor, placa, motor, kmRodado, proprietario, combustivel, numPortas, qtdPassageiros, valor, identificadorPessoa)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     """, lista)
     
     conexao.commit()
@@ -218,7 +219,7 @@ def visualizarCadastro():
 def excluirCadastro():
     conexao = sqlite3.connect('clientes.db')
     cursor  = conexao.cursor()
-    numCpf = input("            Digite o cpf da pessoa a ser excluída: ")
+    numCpf = input("           Digite o cpf da pessoa a ser excluída: ")
     cursor.execute("""
     SELECT * FROM pessoas
     """)
@@ -285,3 +286,228 @@ def excluirCadastro():
         print("Operação cancelada.")
     else:
         print("         Opção inválida.")
+
+def editarCadastro():  
+    def edicao(campo, escolha, escolha2, identificadorPessoa):
+        conexao = sqlite3.connect('clientes.db')
+        cursor  = conexao.cursor()
+        if escolha == 1 and escolha2 != 13:
+            print(campo[0], campo[1])
+            cursor.execute(f"""
+            UPDATE pessoas
+            SET {campo[0]} = {campo[1]}
+            WHERE cpf = {identificadorPessoa}
+            """)
+            conexao.commit()
+            print("Edição feita com sucesso!")
+        elif escolha == 1 and escolha2 == 13:
+            print(campo)
+            cursor.execute(f"""
+            UPDATE pessoas
+            SET nome = {campo[12]}, dataNascimento = {campo[13]}, cpf = {campo[14]}, endereco = {campo[15]}, profissao = {campo[16]}, salario = {campo[17]}, email = {campo[18]}, telefone = {campo[19]}, nomeResponsavel = {campo[20]}, sexo = {campo[21]}, naturalidade = {campo[22]}, nacionalidade = {campo[22]}
+            WHERE cpf = {identificadorPessoa}
+            """)
+            conexao.commit()
+            print("Edição feita com sucesso!")
+        elif escolha == 2 and escolha2 != 14:
+            #print(campo[0], campo[1])
+            cursor.execute(f"""
+            UPDATE veiculos
+            SET {campo[0]} = {campo[1]}
+            WHERE identificadorPessoa = {identificadorPessoa}
+            """)
+            conexao.commit()
+            print("Edição feita com sucesso!")
+        else:
+            #print(campo)
+            identificadorPessoa = cursor.fetchone()
+            cursor.execute(f"""
+            UPDATE veiculos
+            SET tipoVeiculo = {campo[14]}, marca = {campo[15]}, modelo = {campo[16]}, ano = {campo[17]}, cor = {campo[18]}, placa = {campo[19]}, motor = {campo[20]}, kmRodado = {campo[21]}, proprietario = {campo[22]}, combustivel = {campo[23]}, numPortas = {campo[24]}, qtdPassageiros = {campo[25]}, valor = {campo[26]}
+            WHERE identificadorPessoa = {identificadorPessoa}
+            """)
+            conexao.commit()
+            print("Edição feita com sucesso!")
+
+        cursor.close()
+
+    def opcoes(escolha, identificadorPessoa):
+        campo = []
+
+        def getDados(campo, escolha, escolha2, identificadorPessoa):
+            tamanhoListaCampo = len(campo)
+            for i in range(tamanhoListaCampo):
+                info = input(f"           Digite {campo[i]}: ")
+                campo.append(info)
+            edicao(campo, escolha, escolha2, identificadorPessoa)
+
+        if escolha == 1:
+            escolha2 = int(input("""
+           Opções para edição:
+           1. Nome
+           2. Data nascimento
+           3. CPF
+           4. Endereço
+           5. Profissão
+           6. Salário
+           7. Email
+           8. Telefone
+           9. Nome responsável
+           10. Sexo
+           11. Naturalidade
+           12. Nacionalidade
+           13. Tudo
+           Digite a opção desejada: """))
+
+            if escolha2 == 1:
+                campo.append("nome")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 2:
+                campo.append("dataNascimento")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 3:
+                campo.append("cpf")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 4:
+                campo.append("endereco")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 5:
+                campo.append("profissao")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 6:
+                campo.append("salario")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 7:
+                campo.append("email")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 8:
+                campo.append("telefone")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 9:
+                campo.append("nomeResponsavel")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 10:
+                campo.append("sexo")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 11:
+                campo.append("naturalidade")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 12:
+                campo.append("nacionalidade")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 13:
+                campo.append("nome")
+                campo.append("dataNascimento")
+                campo.append("cpf")
+                campo.append("endereco")
+                campo.append("profissao")
+                campo.append("salario")
+                campo.append("email")
+                campo.append("telefone")
+                campo.append("nomeResponsavel")
+                campo.append("sexo")
+                campo.append("naturalidade")
+                campo.append("nacionalidade")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            else:
+                print("             Opção inválida.")
+                opcoes(escolha)
+
+        elif escolha == 2:
+            escolha2 = int(input("""
+           Opções para edição:
+           1. Tipo Veiculo
+           2. Marca
+           3. Modelo
+           4. Ano
+           5. Cor
+           6. Placa
+           7. Motor
+           8. Km rodado
+           9. Proprietário
+           10. Combustível
+           11. Número portas
+           12. Quantidade Passageiros.
+           13. Valor
+           14. Tudo
+           Digite a opção desejada: """))
+
+            if escolha2 == 1:
+                campo.append("tipoVeiculo")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 2:
+                campo.append("marca")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 3:
+                campo.append("modelo")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 4:
+                campo.append("ano")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 5:
+                campo.append("cor")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 6:
+                campo.append("placa")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 7:
+                campo.append("motor")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 8:
+                campo.append("kmRodado")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 9:
+                campo.append("proprietario")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 10:
+                campo.append("combustivel")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 11:
+                campo.append("numPorta")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 12:
+                campo.append("qtdPassageiros")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 13:
+                campo.append("valor")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            elif escolha2 == 14:
+                campo.append("tipoVeiculo")
+                campo.append("marca")
+                campo.append("modelo")
+                campo.append("ano")
+                campo.append("cor")
+                campo.append("placa")
+                campo.append("motor")
+                campo.append("kmRodado")
+                campo.append("proprietario")
+                campo.append("combustivel")
+                campo.append("numPorta")
+                campo.append("qtdPassageiros")
+                campo.append("valor")
+                getDados(campo, escolha, escolha2, identificadorPessoa)
+            else:
+                print("             Opção inválida.")
+                opcoes(escolha)
+
+        else:
+            print("Opção inválida.")
+            opcoes(escolha)
+
+    escolha = int(input("""
+           1. Editar cadastro pessoa.
+           2. Editar cadastro veículo.
+           Digite a opção desejada: """))
+
+    if escolha == 1:
+        identificadorPessoa = input("           Digite o CPF da pessoa: ")
+        opcoes(escolha, identificadorPessoa)
+    elif escolha == 2:
+        identificadorPessoa = input("            Digite o CPF da pessoa com o carro: ")
+        conexao = sqlite3.connect('clientes.db')
+        cursor  = conexao.cursor()
+        cursor.execute(f"SELECT id FROM pessoas WHERE cpf = {identificadorPessoa}")
+        identificadorPessoa = cursor.fetchone()
+        opcoes(escolha, identificadorPessoa)
+    else:
+        print("          Opção inválida.")
