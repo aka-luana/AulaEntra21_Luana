@@ -292,42 +292,40 @@ def editarCadastro():
         conexao = sqlite3.connect('clientes.db')
         cursor  = conexao.cursor()
         if escolha == 1 and escolha2 != 13:
-            print(campo[0], campo[1])
             cursor.execute(f"""
             UPDATE pessoas
-            SET {campo[0]} = {campo[1]}
-            WHERE cpf = {identificadorPessoa}
-            """)
+            SET {campo[0]} = ?
+            WHERE cpf = ?
+            """, (campo[1], identificadorPessoa))
             conexao.commit()
-            print("Edição feita com sucesso!")
+            print("            Edição feita com sucesso!")
         elif escolha == 1 and escolha2 == 13:
-            print(campo)
             cursor.execute(f"""
             UPDATE pessoas
-            SET nome = {campo[12]}, dataNascimento = {campo[13]}, cpf = {campo[14]}, endereco = {campo[15]}, profissao = {campo[16]}, salario = {campo[17]}, email = {campo[18]}, telefone = {campo[19]}, nomeResponsavel = {campo[20]}, sexo = {campo[21]}, naturalidade = {campo[22]}, nacionalidade = {campo[22]}
-            WHERE cpf = {identificadorPessoa}
-            """)
+            SET nome = ?, dataNascimento = ?, cpf = ?, endereco = ?, profissao = ?, salario = ?, email = ?, telefone = ?, nomeResponsavel = ?, sexo = ?, naturalidade = ?, nacionalidade = ?
+            WHERE cpf = ?
+            """, (campo[12], campo[13], campo[14], campo[15], campo[16], campo[17], campo[18], campo[19], campo[20], campo[21], campo[22], campo[23], identificadorPessoa))
             conexao.commit()
-            print("Edição feita com sucesso!")
+            print("           Edição feita com sucesso!")
         elif escolha == 2 and escolha2 != 14:
-            #print(campo[0], campo[1])
+            identificadorP = identificadorPessoa[0]
+            #print(identificadorP)
             cursor.execute(f"""
             UPDATE veiculos
-            SET {campo[0]} = {campo[1]}
-            WHERE identificadorPessoa = {identificadorPessoa}
-            """)
+            SET {campo[0]} = ?
+            WHERE identificadorPessoa = ?
+            """, (campo[1], identificadorP))
             conexao.commit()
-            print("Edição feita com sucesso!")
+            print("           Edição feita com sucesso!")
         else:
-            #print(campo)
-            identificadorPessoa = cursor.fetchone()
+            identificadorP = identificadorPessoa[0]
             cursor.execute(f"""
             UPDATE veiculos
-            SET tipoVeiculo = {campo[14]}, marca = {campo[15]}, modelo = {campo[16]}, ano = {campo[17]}, cor = {campo[18]}, placa = {campo[19]}, motor = {campo[20]}, kmRodado = {campo[21]}, proprietario = {campo[22]}, combustivel = {campo[23]}, numPortas = {campo[24]}, qtdPassageiros = {campo[25]}, valor = {campo[26]}
-            WHERE identificadorPessoa = {identificadorPessoa}
-            """)
+            SET tipoVeiculo = ?, marca = ?, modelo = ?, ano = ?, cor = ?, placa = ?, motor = ?, kmRodado = ?, proprietario = ?, combustivel = ?, numPortas = ?, qtdPassageiros = ?, valor = ?
+            WHERE identificadorPessoa = ?
+            """, (campo[13], campo[14], campo[15], campo[16], campo[17], campo[18], campo[19], campo[20], campo[21], campo[22], campo[23], campo[24], campo[25], identificadorP))
             conexao.commit()
-            print("Edição feita com sucesso!")
+            print("           Edição feita com sucesso!")
 
         cursor.close()
 
@@ -503,7 +501,7 @@ def editarCadastro():
         identificadorPessoa = input("           Digite o CPF da pessoa: ")
         opcoes(escolha, identificadorPessoa)
     elif escolha == 2:
-        identificadorPessoa = input("            Digite o CPF da pessoa com o carro: ")
+        identificadorPessoa = input("           Digite o CPF da pessoa com o carro: ")
         conexao = sqlite3.connect('clientes.db')
         cursor  = conexao.cursor()
         cursor.execute(f"SELECT id FROM pessoas WHERE cpf = {identificadorPessoa}")

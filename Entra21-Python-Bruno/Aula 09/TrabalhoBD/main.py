@@ -30,7 +30,7 @@ if __name__ == "__main__":
         elif (valor == 4):
             bancoCliente.excluirCadastro()
         elif(valor == 0):
-            print("Agradecemos a sua visita!")
+            print("            Agradecemos a sua visita!")
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            print("            Opção inválida. Tente novamente.")
