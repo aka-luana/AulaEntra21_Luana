@@ -95,7 +95,7 @@ def insereDadosVeiculos(dadosVeiculo):
     conexao = sqlite3.connect('clientes.db')
     cursor  = conexao.cursor()
 
-    identificadorPessoa = None
+    identificadorPessoa = 0
     cursor.execute("""
     SELECT id FROM pessoas;
     """)
@@ -285,7 +285,7 @@ def excluirCadastro():
     elif verificacacao == 2:
         excluirCadastro()
     elif verificacacao == 3:
-        print("Operação cancelada.")
+        print("           Operação cancelada.")
     else:
         print("         Opção inválida.")
 
@@ -310,22 +310,23 @@ def editarCadastro():
             conexao.commit()
             print("           Edição feita com sucesso!")
         elif escolha == 2 and escolha2 != 14:
-            identificadorP = identificadorPessoa[0]
+            print(identificadorPessoa)
+            #identificadorP = identificadorPessoa[0]
             #print(identificadorP)
             cursor.execute(f"""
             UPDATE veiculos
             SET {campo[0]} = ?
             WHERE identificadorPessoa = ?
-            """, (campo[1], identificadorP))
+            """, (campo[1], identificadorPessoa))
             conexao.commit()
             print("           Edição feita com sucesso!")
         else:
-            identificadorP = identificadorPessoa[0]
+            #identificadorP = identificadorPessoa[0]
             cursor.execute(f"""
             UPDATE veiculos
             SET tipoVeiculo = ?, marca = ?, modelo = ?, ano = ?, cor = ?, placa = ?, motor = ?, kmRodado = ?, proprietario = ?, combustivel = ?, numPortas = ?, qtdPassageiros = ?, valor = ?
             WHERE identificadorPessoa = ?
-            """, (campo[13], campo[14], campo[15], campo[16], campo[17], campo[18], campo[19], campo[20], campo[21], campo[22], campo[23], campo[24], campo[25], identificadorP))
+            """, (campo[13], campo[14], campo[15], campo[16], campo[17], campo[18], campo[19], campo[20], campo[21], campo[22], campo[23], campo[24], campo[25], identificadorPessoa))
             conexao.commit()
             print("           Edição feita com sucesso!")
 
@@ -335,6 +336,7 @@ def editarCadastro():
         campo = []
 
         def getDados(campo, escolha, escolha2, identificadorPessoa):
+            print(identificadorPessoa)
             tamanhoListaCampo = len(campo)
             for i in range(tamanhoListaCampo):
                 info = input(f"           Digite {campo[i]}: ")
@@ -411,7 +413,7 @@ def editarCadastro():
                 getDados(campo, escolha, escolha2, identificadorPessoa)
             else:
                 print("             Opção inválida.")
-                opcoes(escolha)
+                opcoes(escolha, identificadorPessoa)
 
         elif escolha == 2:
             escolha2 = int(input("""
@@ -488,11 +490,11 @@ def editarCadastro():
                 getDados(campo, escolha, escolha2, identificadorPessoa)
             else:
                 print("             Opção inválida.")
-                opcoes(escolha)
+                opcoes(escolha, identificadorPessoa)
 
         else:
-            print("Opção inválida.")
-            opcoes(escolha)
+            print("             Opção inválida.")
+            opcoes(escolha, identificadorPessoa)
 
     escolha = int(input("""
            1. Editar cadastro pessoa.
@@ -506,8 +508,10 @@ def editarCadastro():
         identificadorPessoa = input("           Digite o CPF da pessoa com o carro: ")
         conexao = sqlite3.connect('clientes.db')
         cursor  = conexao.cursor()
-        cursor.execute(f"SELECT id FROM pessoas WHERE cpf = {identificadorPessoa}")
-        identificadorPessoa = cursor.fetchone()
+        cursor.execute(f"SELECT id FROM pessoas WHERE cpf = ?", (identificadorPessoa,))
+        identificadorPessoa = cursor.fetchone()[0]
+        print(identificadorPessoa)
         opcoes(escolha, identificadorPessoa)
+        conexao.close()
     else:
         print("          Opção inválida.")
