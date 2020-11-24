@@ -1,4 +1,0 @@
-Cupom fiscal: Arroz, Chocolate, Pão, Queijo, Suco, Vinho
-Total da compra sem desconto: R$5.0
-Total da compra com desconto: R$132.0
-O item mais caro foi o Vinho no valor de R$ 100

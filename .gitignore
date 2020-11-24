@@ -129,3 +129,5 @@ dmypy.json
 
 #Minhas coisas
 Udemy e Guanabara/
+*.db
+*.txt
