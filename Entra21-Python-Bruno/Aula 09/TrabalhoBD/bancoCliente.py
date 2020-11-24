@@ -97,12 +97,13 @@ def insereDadosVeiculos(dadosVeiculo):
 
     identificadorPessoa = None
     cursor.execute("""
-    SELECT * FROM pessoas;
+    SELECT id FROM pessoas;
     """)
-    for linha in cursor.fetchall():
-        identificadorPessoa = linha
-        break
+    for todosId in cursor.fetchall():
+        identificadorPessoa = todosId
     identificadorPessoa = identificadorPessoa[0]
+    
+    print(identificadorPessoa)
 
     lista = list(dadosVeiculo.values())
     lista.append(identificadorPessoa)
@@ -152,18 +153,19 @@ def visualizarCadastro():
            Nacionalidade: {dadosP[12]}
            
               Informações veículo
-           Marca: {dadosV[1]}
-           Modelo: {dadosV[2]}
-           Ano: {dadosV[3]}
-           Cor: {dadosV[4]}
-           Placa: {dadosV[5]}
-           Motor: {dadosV[6]}
-           Km Rodado: {dadosV[7]}
-           Nome proprietário(a): {dadosV[8]}
-           Combustível: {dadosV[9]}
-           Quantidade portas: {dadosV[10]}
-           Quantidade passageiros: {dadosV[11]}
-           Valor: {dadosV[12]}
+           Tipo Veiculo: {dadosV[1]}
+           Marca: {dadosV[2]}
+           Modelo: {dadosV[3]}
+           Ano: {dadosV[4]}
+           Cor: {dadosV[5]}
+           Placa: {dadosV[6]}
+           Motor: {dadosV[7]}
+           Km Rodado: {dadosV[8]}
+           Nome proprietário(a): {dadosV[9]}
+           Combustível: {dadosV[10]}
+           Quantidade portas: {dadosV[11]}
+           Quantidade passageiros: {dadosV[12]}
+           Valor: {dadosV[13]}
            ------------------------""")
     elif escolha == 2:
         numCpf = input("            Digite seu cpf: ")

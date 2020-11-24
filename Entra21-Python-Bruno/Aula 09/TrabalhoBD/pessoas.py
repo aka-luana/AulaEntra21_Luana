@@ -22,6 +22,7 @@ def infoPessoa(Pessoa):
     Aqui fazemos os inputs das informações de cadastro de uma pessoa, após isso
     colocamos os dados em um objeto da classe Pessoa e retornamos esse mesmo objeto.
     '''
+
     print("\n            ----- CADASTRO PESSOA ----- \n")
     nome            = input("            Digite nome completo: ")
     dataNascimento  = input("            Digite sua data de nascimento: ")
