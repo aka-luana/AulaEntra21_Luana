@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+
+        <!--Inicio do CSS-->
+        <style type="text/css">
+            body { 
+                background-color: #fca311;
+                text-align: center;
+            }
+            h1, p {
+                color: #14213d;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+            }
+            h2 {
+                color: #d00000;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #hoverFoto:hover {
+                box-shadow:  0 0 40px -10px rgba(0, 0, 0, 0.25);
+	            transform: scale(1.05);
+	            transition: 0.3s;
+            }
+            #container_box_lugares {
+                text-align: left;
+            }
+        </style>
+        <!--Fim do CSS-->
+
+        <!--Colocando icone na página-->
+        <link rel="icon" href="iconeSite.ico">
+
+        <!--Declarando o título da página-->
+        <title>Virando a esquina</title>
+    </head>
+
+    <body>
+        <br>
+
+        <!--Colocando titulo na página-->
+        <h1>O mundo no meu ponto de vista</h1>
+
+        <!--Colocando título do nav-->
+        <h2>Lugares já visitados</h2>
+
+        <br>
+
+        <!--Criando nav de fotos de lugares visitados-->
+        <div id="menu_fotos_lugares_visitados">
+            <a href="#salvadorBox"><img id="hoverFoto" src="salvador.jpg" alt="Foto do Pelourinho na cidade de Salvador. Casas e igrejas antigas e coloridas." title="Isso é Salvador!" height="150px" width="240px"></a>
+            <a href="#fortalezaBox"><img id="hoverFoto" src="fortaleza.jpeg" alt="Foto da cidade de Fortaleza, onde mostra grandes prédios, a barra da praia e um grande por do sol." title="Isso é Fortaleza!" height="150px" width="240px"></a>
+            <a href="#curitibaBox"><img id="hoverFoto" src="curitiba.jpg" alt="Foto do Jardim Botânico com luzes vista de cima. No fundo é possível ver os prédios da cidade." title="Isso é Curitiba!" height="150px" width="240px"></a>
+            <a href="#portoAlegreBox"><img id="hoverFoto" src="portoAlegre.jpg" alt="Foto da cidade de Porto Aelgre vista de cima. Mostra uma grande avenida, com o mar ao lado e os prédios no fundo." title="Isso é Porto Alegre!" height="150px" width="240px"></a>
+            <a href="#floripaBox"><img id="hoverFoto" src="floripa.jpg" alt="Foto da cidade de Florianópolis, a foto mostra a uma grande ponte que leva a cidade." title="Isso é Florianópolis!" height="150px" width="240px"></a>
+        </div>
+
+        <br><br>
+
+        <!--Colocando título do nav-->
+        <h2>Lugares ainda não visitados</h2>
+
+        <!--Criando nav de fotos de lugares não visitados-->
+        <div id="menu_fotos_lugares_nao_visitados">
+            <a href="#rioDeJaneiroBox"><img id="hoverFoto" src="riodejaneiro.jpg" alt="Vista de cima da cidade do Rio de Janeiro, onde mostra o mar, montanhas, a cidade e o Cristo Redentor de costas." title="Isso é Rio de Janeiro!" height="150px" width="240px"></a>
+            <a href="#saoPauloBox"><img id="hoverFoto" src="saoPaulo.jpg" alt="Vista da avenida Paulista da cidade de São Paulo. Uma grande rua com prédios a cercando." title="Isso é São Paulo!" height="150px" width="240px"></a>
+            <a href="#machuPicchuBox"><img id="hoverFoto" src="machuPicchu.jpg" alt="Vista das montanhas e antigas ruinas do famoso Machu Picchu." title="Isso é Machu Picchu!" height="150px" width="240px"></a>
+            <a href="#ilhaPascoaBox"><img id="hoverFoto" src="ilhaPascoa.png" alt="Vista da Ilha da Pascoa, onde é possível ver uma fileira de Moais, montanhas e o mar." title="Isso é Ilha da Pascoa!" height="150px" width="240px"></a>
+            <a href="#monteTongariroBox"><img id="hoverFoto" src="monteTongariro.jpg" alt="Vista do monte Tongariro na Nova Zelândia. A foto mostra montanhas escuras e piscinas naturais." title="Isso é Monte Tongariro!" height="150px" width="240px"></a>
+        </div>
+
+        <br><br><br><br><br>
+
+        <!--Criando box dos lugares-->
+        <div id="container_box_lugares">
+            <div id="salvadorBox">
+                <h2>Salvador</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="fortalezaBox">
+                <h2>Fortaleza</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="curitibaBox">
+                <h2>Curitiba</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="portoAlegreBox">
+                <h2>Porto Alegre</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="floripaBox">
+                <h2>Florianópolis</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br> 
+            <div id="rioDeJaneiroBox">
+                <h2>Rio de Janeiro</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="saoPauloBox">
+                <h2>São Paulo</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="machuPicchuBox">
+                <h2>Machu Picchu</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="ilhaPascoaBox">
+                <h2>Ilha da Páscoa</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="monteTongariroBox">
+                <h2>Monte Tongariro</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </body>
+</html>
