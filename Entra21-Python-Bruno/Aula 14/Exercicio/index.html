@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+
+        <!--Declarando o arquivo do css-->
+        <link rel="stylesheet" href="style.css">
+
+        <!--Colocando icone na página-->
+        <link rel="icon" href="iconeSite.ico">
+
+        <!--Declarando o título da página-->
+        <title>Virando a esquina</title>
+    </head>
+
+    <body>
+        <br>
+
+        <!--Colocando titulo na página-->
+        <h1>O mundo no meu ponto de vista</h1>
+
+        <!--Colocando título do nav-->
+        <h2>Lugares já visitados</h2>
+
+        <br>
+
+        <!--Criando nav de fotos de lugares visitados-->
+        <div id="menu_fotos_lugares_visitados">
+            <a href="#salvadorBox"><img class="hoverFoto" src="salvador.jpg" alt="Foto do Pelourinho na cidade de Salvador. Casas e igrejas antigas e coloridas." title="Isso é Salvador!" height="150px" width="240px"></a>
+            <a href="#fortalezaBox"><img class="hoverFoto" src="fortaleza.jpeg" alt="Foto da cidade de Fortaleza, onde mostra grandes prédios, a barra da praia e um grande por do sol." title="Isso é Fortaleza!" height="150px" width="240px"></a>
+            <a href="#curitibaBox"><img class="hoverFoto" src="curitiba.jpg" alt="Foto do Jardim Botânico com luzes vista de cima. No fundo é possível ver os prédios da cidade." title="Isso é Curitiba!" height="150px" width="240px"></a>
+            <a href="#portoAlegreBox"><img class="hoverFoto" src="portoAlegre.jpg" alt="Foto da cidade de Porto Aelgre vista de cima. Mostra uma grande avenida, com o mar ao lado e os prédios no fundo." title="Isso é Porto Alegre!" height="150px" width="240px"></a>
+            <a href="#floripaBox"><img class="hoverFoto" src="floripa.jpg" alt="Foto da cidade de Florianópolis, a foto mostra a uma grande ponte que leva a cidade." title="Isso é Florianópolis!" height="150px" width="240px"></a>
+        </div>
+
+        <br><br>
+
+        <!--Colocando título do nav-->
+        <h2>Lugares ainda não visitados</h2>
+
+        <!--Criando nav de fotos de lugares não visitados-->
+        <div id="menu_fotos_lugares_nao_visitados">
+            <a href="#rioDeJaneiroBox"><img class="hoverFoto" src="riodejaneiro.jpg" alt="Vista de cima da cidade do Rio de Janeiro, onde mostra o mar, montanhas, a cidade e o Cristo Redentor de costas." title="Isso é Rio de Janeiro!" height="150px" width="240px"></a>
+            <a href="#saoPauloBox"><img class="hoverFoto" src="saoPaulo.jpg" alt="Vista da avenida Paulista da cidade de São Paulo. Uma grande rua com prédios a cercando." title="Isso é São Paulo!" height="150px" width="240px"></a>
+            <a href="#machuPicchuBox"><img class="hoverFoto" src="machuPicchu.jpg" alt="Vista das montanhas e antigas ruinas do famoso Machu Picchu." title="Isso é Machu Picchu!" height="150px" width="240px"></a>
+            <a href="#ilhaPascoaBox"><img class="hoverFoto" src="ilhaPascoa.png" alt="Vista da Ilha da Pascoa, onde é possível ver uma fileira de Moais, montanhas e o mar." title="Isso é Ilha da Pascoa!" height="150px" width="240px"></a>
+            <a href="#monteTongariroBox"><img class="hoverFoto" src="monteTongariro.jpg" alt="Vista do monte Tongariro na Nova Zelândia. A foto mostra montanhas escuras e piscinas naturais." title="Isso é Monte Tongariro!" height="150px" width="240px"></a>
+        </div>
+
+        <br><br><br><br><br>
+
+        <!--Criando box dos lugares-->
+        <div id="container_box_lugares">
+            <div id="salvadorBox" class="descricaoLugar">
+                <h2>Salvador</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!--Colocando um botão que leva a uma outra página e a uma div específica de lá-->
+                <a class="decoBotao" href="listaItens.html#listaSalvador">Ver lista de itens que não podem faltar na viagem</a>
+            </div>
+            <br>
+            <div id="fortalezaBox" class="descricaoLugar">
+                <h2>Fortaleza</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!--Colocando um botão que leva a uma outra página e a uma div específica de lá-->
+                <a class="decoBotao" href="listaItens.html#listaFortaleza">Ver lista de itens que não podem faltar na viagem</a>
+            </div>
+            <br>
+            <div id="curitibaBox" class="descricaoLugar">
+                <h2>Curitiba</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!--Colocando um botão que leva a uma outra página e a uma div específica de lá-->
+                <a class="decoBotao" href="listaItens.html#listaCuritiba">Ver lista de itens que não podem faltar na viagem</a>
+            </div>
+            <br>
+            <div id="portoAlegreBox" class="descricaoLugar">
+                <h2>Porto Alegre</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!--Colocando um botão que leva a uma outra página e a uma div específica de lá-->
+                <a class="decoBotao" href="listaItens.html#listaPortoAlegre">Ver lista de itens que não podem faltar na viagem</a>
+            </div>
+            <br>
+            <div id="floripaBox" class="descricaoLugar">
+                <h2>Florianópolis</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!--Colocando um botão que leva a uma outra página e a uma div específica de lá-->
+                <a class="decoBotao" href="listaItens.html#listaFloripa">Ver lista de itens que não podem faltar na viagem</a>
+            </div>
+            <br> 
+            <div id="rioDeJaneiroBox" class="descricaoLugar">
+                <h2>Rio de Janeiro</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="saoPauloBox" class="descricaoLugar">
+                <h2>São Paulo</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="machuPicchuBox" class="descricaoLugar">
+                <h2>Machu Picchu</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="ilhaPascoaBox" class="descricaoLugar">
+                <h2>Ilha da Páscoa</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <br>
+            <div id="monteTongariroBox" class="descricaoLugar">
+                <h2>Monte Tongariro</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus dignissim sollicitudin. Etiam sodales commodo nisi, at vulputate nunc rutrum eget. Praesent feugiat mattis metus vel pharetra. Quisque aliquet nulla eget lectus malesuada consequat. Fusce fermentum risus ac ex commodo tempus. Nam vel convallis arcu, ut volutpat mi. Etiam lacinia magna in ante porta interdum id vel est. Integer rutrum enim ac dui convallis, eu feugiat lacus maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </body>
+</html>

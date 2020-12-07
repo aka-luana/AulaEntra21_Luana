@@ -1,0 +1,29 @@
+.minha-div {
+    text-align: center;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 200px) {
+    .minha-div  {
+        background-color: yellow;
+    }
+}
+
+@media screen and (min-width: 300px) {
+    .minha-div  {
+        background-color: blue;
+    }
+}
+
+.minha-div p {
+    color: chartreuse;
+}
+
+#outra-div {
+    background-color: blue;
+    text-align: right;
+    height: 50%;
+    width: 50%;
+}

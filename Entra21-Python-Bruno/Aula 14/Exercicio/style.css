@@ -1,0 +1,103 @@
+/*Inicio tag*/
+body { 
+    background-color: #fca311;
+    text-align: center;
+}
+h1, p {
+    color: #14213d;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+h2 {
+    color: #d00000;
+    font-family: 'Courier New', Courier, monospace;
+}
+ol {
+    list-style-position: inside;
+    color: #d00000;
+    font-weight: bold;
+    background-color: #14213d;
+    padding: 15px;
+    border-radius: 5px;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 2px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 5px 12px 0 0;
+}
+ol li {
+    border-radius: 5px;
+    background-color: #fca311;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 10px 12px;
+}
+table {
+    background: #fafafa;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 2px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 5px 12px 0 0;
+}
+th {
+    background-color: #d00000;
+    color: #fafafa;
+    text-transform: uppercase;
+}
+th, td {
+    padding: 10px 12px;
+}
+tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+/*Fim tag*/
+
+/*Inicio classe*/
+.hoverFoto:hover {
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.hoverItem:hover {
+    background-color: #eeeeee;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.decoBotao {
+    background-color: #d00000;
+    padding: 10px 12px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 7px;
+    color: #eeeeee;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+}
+.decoBotao:hover {
+    background-color: #eeeeee;
+    color: #d00000;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+/*Fim classe*/
+
+/*Inicio ID*/
+#container_box_lugares {
+    text-align: left;
+}
+#orcamentoSalvador, #orcamentoFortaleza, #orcamentoCuritiba, #orcamentoPortoAlegre, #orcamentoFloripa {
+    padding-left: 40%;
+}
+#listaSalvador, #listaFortaleza, #listaCuritiba, #listaPortoAlegre, #listaFloripa {
+    padding-left: 32%;
+}
+/*Fim ID*/
