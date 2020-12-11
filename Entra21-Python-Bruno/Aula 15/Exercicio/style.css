@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Inicio ID*/
+/*Fim ID*/
+
+/*Inicio Classe*/
+.topo {
+    padding: 80px;
+    text-align: center;
+    background-color: #283618;
+    color: #dda15e;
+}
+.topo a {
+    color: #dda15e;
+    text-decoration: none;
+}
+.menu {
+    overflow: hidden;
+    background-color: #606c38;
+    text-align: center;
+}
+.menu a {
+    display: inline-block;
+    color: #dda15e;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.menu a:hover {
+    background-color: #bc6c25;
+    color: #283618;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.info_lateral {
+    -ms-flex: 30%;
+    flex: 30%;
+    background-color: #bc6c25;
+    padding: 20px;
+}
+.conteudo {
+    -ms-flex: 70%;
+    flex: 70%;
+    background-color: #dda15e;
+    padding: 20px;
+}
+.conteudo h2, h3, p {
+    text-align: center;
+}
+.conteudo img {
+    width: 410px;
+    float: left;
+    padding: 0.5%;
+}
+.video {
+    width: 75%;
+    margin: 0 auto;
+    display: block;
+}
+.video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.foto {
+    border-radius: 100%;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+.foto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.itens:hover {
+    background-color: #dda15e;
+    color: #283618;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+/*Fim Classe*/
+
+/*Inicio Tag*/
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+main {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+}
+footer {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    background: #283618;
+    color: #dda15e;
+}
+ol {
+    list-style-position: inside;
+    color: #dda15e;
+    font-weight: bold;
+    background-color: #bc6c25;
+    padding: 15px;
+    width: 50%;
+    text-align: center;
+    border-radius: 2px 12px 0 0;
+    box-shadow: 0 5px 12px 0 0;
+    margin-left: auto; 
+    margin-right: auto;
+}
+ol li {
+    border-radius: 5px;
+    background-color: #283618;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 10px 12px;
+}
+/*Fim Tag*/

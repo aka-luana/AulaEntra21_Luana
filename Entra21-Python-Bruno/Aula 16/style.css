@@ -1,0 +1,93 @@
+body, ul, li, p, a{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
+    text-align: center;
+    margin: 0;
+    border: 2px solid black;
+    width: 200px;
+    background-color: blanchedalmond;
+}
+
+.header {
+    margin: 0;
+    border: 2px solid black;
+    background-color: lightslategray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li a {
+    margin: 0;
+    border: 2px solid black;
+    display: block;
+    padding: 10px;
+    background-color: tomato;
+    height: 100px;
+    width: 100px;
+}
+
+.container1 {
+    width: 100%;
+    margin: 0;
+    border: 2px solid black;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.flex > div {
+    flex: 1 1 250px;
+    margin: 10px;
+    border: 2px solid black;
+}
+
+.grid1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+.grid1 > div.mensagem {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    border-top: 10px solid tomato;
+    display: block;
+}
+.grid1 > div.reCaptcha {
+    grid-column: 2;
+    grid-row: 5 / 5;
+    border-top: 10px solid tomato;
+    display: block;
+}
+.grid1 > div.botao {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 6;
+    border-top: 10px solid tomato;
+    display: block;
+}
