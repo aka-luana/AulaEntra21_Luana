@@ -19,6 +19,10 @@ class Post(models.Model):
                                  choices=STATUS,
                                  default='rascunho') #Status do post
 
+    #Configurações adicionais
+    class Meta:
+        ordering = ('-publicado',) #Ordem dos posts pela data da publicação. O sinal de - é para priorizar as primeiras.
+
     #Colocando o titulo como o nome do Post (caso contrário fica como Post Object(x)
     def __str__(self):
         return self.titulo
