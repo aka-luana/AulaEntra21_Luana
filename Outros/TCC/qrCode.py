@@ -7,8 +7,8 @@ qr = qrcode.QRCode(
 	border=5
 )
 
-data = 'Opa, Brunao. Suave na nave?'
+data = 'Gerando QR Code pra turma :D'
 qr.add_data(data)
 qr.make(fit=True)
 img = qr.make_image()
-img.save('teste3.png')
+img.save('QRPython.png')
